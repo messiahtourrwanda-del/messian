@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { MapPin, ArrowRight, Mountain, TreePine, Waves, Sun, Bird } from "lucide-react";
 
@@ -128,13 +129,13 @@ export default function CountryNavigator() {
                         </span>
                       ))}
                     </div>
-                    <a
-                      href={`#${country.name.toLowerCase()}`}
+                    <Link
+                      href={`/destinations/${country.name.toLowerCase()}`}
                       className="inline-flex items-center gap-2 text-[hsl(45,80%,55%)] text-sm font-semibold hover:gap-3 transition-all"
                     >
                       Explore {country.name}
                       <ArrowRight className="w-4 h-4" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

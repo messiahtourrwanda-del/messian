@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Binoculars, TreePine, Tent, Heart, Waves, Camera } from "lucide-react";
 
 const categories = [
@@ -78,9 +79,9 @@ export default function ExperienceCategories() {
         {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((cat, index) => (
-            <a
+            <Link
               key={index}
-              href={`#${cat.id}`}
+              href="/tours"
               className="group relative rounded-2xl overflow-hidden h-[300px] cursor-pointer"
             >
               <img
@@ -108,7 +109,7 @@ export default function ExperienceCategories() {
                   {cat.description}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

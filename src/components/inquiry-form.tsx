@@ -1,9 +1,13 @@
 "use client";
 
-import { Send, Calendar, Users, MapPin, Mail, Phone, User } from "lucide-react";
+import { Send, Calendar, Users, MapPin, Mail, Phone, User, CheckCircle, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { createClient } from "../../supabase/client";
 
 export default function InquiryForm() {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -34,6 +38,56 @@ export default function InquiryForm() {
         : [...prev.interests, interest],
     }));
   };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const supabase = createClient();
+      const { error: dbError } = await supabase.from("inquiries").insert({
+        full_name: formData.name,
+        email: formData.email,
+        phone: formData.phone || null,
+        destination: formData.destination || null,
+        travelers: formData.travelers || null,
+        travel_date: formData.travelDate || null,
+        interests: formData.interests,
+        message: formData.message || null,
+        status: "new",
+      });
+
+      if (dbError) throw dbError;
+      setSuccess(true);
+    } catch (err: any) {
+      setError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (success) {
+    return (
+      <section className="py-20 md:py-28 bg-[hsl(40,20%,97%)] relative overflow-hidden" id="inquiry">
+        <div className="container mx-auto px-4">
+          <div className="max-w-xl mx-auto text-center bg-white rounded-2xl shadow-xl p-12 border border-gray-100">
+            <div className="w-16 h-16 rounded-full bg-[hsl(152,45%,25%)]/10 flex items-center justify-center mx-auto mb-4">
+              <CheckCircle className="w-8 h-8 text-[hsl(152,45%,25%)]" />
+            </div>
+            <h3 className="text-2xl font-bold text-[hsl(150,20%,10%)] mb-3">
+              Thank You!
+            </h3>
+            <p className="text-gray-600">
+              We&apos;ve received your safari inquiry. Our expert travel consultants
+              will craft a personalized itinerary and reach out to you within 24
+              hours.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section

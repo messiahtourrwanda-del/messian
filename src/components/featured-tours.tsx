@@ -2,10 +2,12 @@
 
 import { ArrowRight, Clock, MapPin, Star, Users } from "lucide-react";
 import { useRef } from "react";
+import Link from "next/link";
 
 const tours = [
   {
     title: "East Africa Grand Safari",
+    slug: "east-africa-grand-safari",
     countries: ["Kenya", "Tanzania", "Rwanda"],
     duration: "14 Days",
     groupSize: "2-8",
@@ -18,6 +20,7 @@ const tours = [
   },
   {
     title: "Gorilla & Chimp Encounter",
+    slug: "gorilla-chimp-encounter",
     countries: ["Rwanda", "Uganda"],
     duration: "8 Days",
     groupSize: "2-6",
@@ -30,6 +33,7 @@ const tours = [
   },
   {
     title: "Great Migration Experience",
+    slug: "great-migration-experience",
     countries: ["Kenya", "Tanzania"],
     duration: "10 Days",
     groupSize: "2-8",
@@ -42,6 +46,7 @@ const tours = [
   },
   {
     title: "Kilimanjaro Summit & Safari",
+    slug: "kilimanjaro-summit-safari",
     countries: ["Tanzania"],
     duration: "12 Days",
     groupSize: "2-10",
@@ -54,6 +59,7 @@ const tours = [
   },
   {
     title: "Primate Safari Complete",
+    slug: "primate-safari-complete",
     countries: ["Rwanda", "Uganda", "Tanzania"],
     duration: "15 Days",
     groupSize: "2-6",
@@ -66,6 +72,7 @@ const tours = [
   },
   {
     title: "Lake Tanganyika & Beyond",
+    slug: "lake-tanganyika-beyond",
     countries: ["Burundi", "Tanzania"],
     duration: "7 Days",
     groupSize: "2-8",
@@ -203,13 +210,13 @@ export default function FeaturedTours() {
                     </div>
                     <span className="text-xs text-gray-400">per person</span>
                   </div>
-                  <a
-                    href="#inquiry"
+                  <Link
+                    href={`/tours/${tour.slug}`}
                     className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[hsl(152,45%,25%)] text-white rounded-lg hover:bg-[hsl(152,45%,20%)] transition-colors text-sm font-medium"
                   >
                     View Details
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

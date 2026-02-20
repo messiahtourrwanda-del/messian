@@ -11,28 +11,26 @@ import {
 } from "lucide-react";
 
 const destinations = [
-  { name: "Rwanda", href: "#rwanda" },
-  { name: "Uganda", href: "#uganda" },
-  { name: "Kenya", href: "#kenya" },
-  { name: "Tanzania", href: "#tanzania" },
-  { name: "Burundi", href: "#burundi" },
+  { name: "Rwanda", href: "/destinations/rwanda" },
+  { name: "Uganda", href: "/destinations/uganda" },
+  { name: "Kenya", href: "/destinations/kenya" },
+  { name: "Tanzania", href: "/destinations/tanzania" },
+  { name: "Burundi", href: "/destinations/burundi" },
 ];
 
 const experiences = [
-  { name: "Gorilla Trekking", href: "#gorilla-trekking" },
-  { name: "Big Five Safaris", href: "#big-five" },
-  { name: "Primate Tracking", href: "#primate-tracking" },
-  { name: "Cultural Immersion", href: "#cultural" },
-  { name: "Beach Extensions", href: "#beach" },
+  { name: "Gorilla Trekking", href: "/tours" },
+  { name: "Big Five Safaris", href: "/tours" },
+  { name: "Primate Tracking", href: "/tours" },
+  { name: "Cultural Immersion", href: "/tours" },
+  { name: "Beach Extensions", href: "/tours" },
 ];
 
 const quickLinks = [
-  { name: "About Us", href: "#about" },
-  { name: "Our Tours", href: "#tours" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Travel Blog", href: "#blog" },
-  { name: "FAQs", href: "#faq" },
-  { name: "Contact Us", href: "#contact" },
+  { name: "About Us", href: "/about" },
+  { name: "Our Tours", href: "/tours" },
+  { name: "Testimonials", href: "/#testimonials" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export default function SafariFooter() {
@@ -122,13 +120,13 @@ export default function SafariFooter() {
             <ul className="space-y-3">
               {destinations.map((d) => (
                 <li key={d.name}>
-                  <a
+                  <Link
                     href={d.href}
                     className="text-white/60 hover:text-[hsl(45,80%,55%)] transition-colors text-sm flex items-center gap-2 group"
                   >
                     <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     {d.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -142,13 +140,13 @@ export default function SafariFooter() {
             <ul className="space-y-3">
               {experiences.map((e) => (
                 <li key={e.name}>
-                  <a
+                  <Link
                     href={e.href}
                     className="text-white/60 hover:text-[hsl(45,80%,55%)] transition-colors text-sm flex items-center gap-2 group"
                   >
                     <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     {e.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -162,13 +160,13 @@ export default function SafariFooter() {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-white/60 hover:text-[hsl(45,80%,55%)] transition-colors text-sm flex items-center gap-2 group"
                   >
                     <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

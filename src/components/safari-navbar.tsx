@@ -12,19 +12,19 @@ import {
 } from "lucide-react";
 
 const destinations = [
-  { name: "Rwanda", href: "#rwanda" },
-  { name: "Uganda", href: "#uganda" },
-  { name: "Kenya", href: "#kenya" },
-  { name: "Tanzania", href: "#tanzania" },
-  { name: "Burundi", href: "#burundi" },
+  { name: "Rwanda", href: "/destinations/rwanda" },
+  { name: "Uganda", href: "/destinations/uganda" },
+  { name: "Kenya", href: "/destinations/kenya" },
+  { name: "Tanzania", href: "/destinations/tanzania" },
+  { name: "Burundi", href: "/destinations/burundi" },
 ];
 
 const experiences = [
-  { name: "Gorilla Trekking", href: "#gorilla-trekking" },
-  { name: "Big Five Safaris", href: "#big-five" },
-  { name: "Primate Tracking", href: "#primate-tracking" },
-  { name: "Cultural Immersion", href: "#cultural" },
-  { name: "Beach Extensions", href: "#beach" },
+  { name: "Gorilla Trekking", href: "/tours" },
+  { name: "Big Five Safaris", href: "/tours" },
+  { name: "Primate Tracking", href: "/tours" },
+  { name: "Cultural Immersion", href: "/tours" },
+  { name: "Beach Extensions", href: "/tours" },
 ];
 
 export default function SafariNavbar() {
@@ -103,13 +103,13 @@ export default function SafariNavbar() {
                 {destOpen && (
                   <div className="absolute top-full left-0 bg-white rounded-lg shadow-xl border border-gray-100 py-2 min-w-[180px]">
                     {destinations.map((d) => (
-                      <a
+                      <Link
                         key={d.name}
                         href={d.href}
                         className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[hsl(40,20%,96%)] hover:text-[hsl(152,45%,25%)] transition-colors"
                       >
                         {d.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -128,34 +128,34 @@ export default function SafariNavbar() {
                 {expOpen && (
                   <div className="absolute top-full left-0 bg-white rounded-lg shadow-xl border border-gray-100 py-2 min-w-[200px]">
                     {experiences.map((e) => (
-                      <a
+                      <Link
                         key={e.name}
                         href={e.href}
                         className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[hsl(40,20%,96%)] hover:text-[hsl(152,45%,25%)] transition-colors"
                       >
                         {e.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
               </div>
 
               <Link
-                href="#tours"
+                href="/tours"
                 className="px-4 py-2 text-sm font-medium text-[hsl(150,20%,10%)] hover:text-[hsl(152,45%,25%)] transition-colors"
               >
                 Tours
               </Link>
 
               <Link
-                href="#about"
+                href="/about"
                 className="px-4 py-2 text-sm font-medium text-[hsl(150,20%,10%)] hover:text-[hsl(152,45%,25%)] transition-colors"
               >
                 About Us
               </Link>
 
               <Link
-                href="#contact"
+                href="/contact"
                 className="px-4 py-2 text-sm font-medium text-[hsl(150,20%,10%)] hover:text-[hsl(152,45%,25%)] transition-colors"
               >
                 Contact
@@ -164,12 +164,12 @@ export default function SafariNavbar() {
 
             {/* CTA + Mobile Toggle */}
             <div className="flex items-center gap-3">
-              <a
-                href="#inquiry"
+              <Link
+                href="/contact"
                 className="hidden md:inline-flex items-center px-5 py-2.5 bg-[hsl(45,80%,55%)] text-[hsl(150,20%,10%)] rounded-lg hover:bg-[hsl(45,80%,48%)] transition-colors text-sm font-semibold shadow-sm"
               >
                 Plan Your Safari
-              </a>
+              </Link>
               <button
                 className="lg:hidden p-2 text-[hsl(150,20%,10%)]"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -198,51 +198,51 @@ export default function SafariNavbar() {
                 Destinations
               </div>
               {destinations.map((d) => (
-                <a
+                <Link
                   key={d.name}
                   href={d.href}
                   className="block px-6 py-2.5 text-sm text-gray-600 hover:bg-[hsl(40,20%,96%)] rounded-lg"
                 >
                   {d.name}
-                </a>
+                </Link>
               ))}
               <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 Experiences
               </div>
               {experiences.map((e) => (
-                <a
+                <Link
                   key={e.name}
                   href={e.href}
                   className="block px-6 py-2.5 text-sm text-gray-600 hover:bg-[hsl(40,20%,96%)] rounded-lg"
                 >
                   {e.name}
-                </a>
+                </Link>
               ))}
               <Link
-                href="#tours"
+                href="/tours"
                 className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-[hsl(40,20%,96%)] rounded-lg"
               >
                 Tours
               </Link>
               <Link
-                href="#about"
+                href="/about"
                 className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-[hsl(40,20%,96%)] rounded-lg"
               >
                 About Us
               </Link>
               <Link
-                href="#contact"
+                href="/contact"
                 className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-[hsl(40,20%,96%)] rounded-lg"
               >
                 Contact
               </Link>
               <div className="pt-2">
-                <a
-                  href="#inquiry"
+                <Link
+                  href="/contact"
                   className="block w-full text-center px-5 py-3 bg-[hsl(45,80%,55%)] text-[hsl(150,20%,10%)] rounded-lg hover:bg-[hsl(45,80%,48%)] transition-colors text-sm font-semibold"
                 >
                   Plan Your Safari
-                </a>
+                </Link>
               </div>
             </div>
           </div>

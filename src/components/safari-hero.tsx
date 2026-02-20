@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowRight, Play } from "lucide-react";
 import { useState } from "react";
 
@@ -46,13 +47,13 @@ export default function SafariHero() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <a
-              href="#tours"
+            <Link
+              href="/tours"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[hsl(45,80%,55%)] text-[hsl(150,20%,10%)] rounded-lg hover:bg-[hsl(45,80%,48%)] transition-all text-base font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               Explore Our Tours
               <ArrowRight className="w-5 h-5" />
-            </a>
+            </Link>
             <button
               onClick={() => setShowVideo(!showVideo)}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-lg hover:bg-white/20 transition-all text-base font-medium"
